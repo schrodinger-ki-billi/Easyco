@@ -52,16 +52,6 @@ input[type="text"],textarea
     box-sizing: border-box;
     font-family: inherit;
 }
-.selfie
-{
-    display: block;
-    width: 100%;
-    padding: 10px;
-    background-color: #e64a9d;
-    border: 1px dashed #f49bea;
-    border-radius: 6px;
-    cursor: pointer;
-}
 .lovebomb
 {
     display: block;
@@ -76,20 +66,10 @@ input[type="text"],textarea
     margin-top: 24px;
     cursor: pointer;
 }
-.default-photo
-{
-    display: none;
-}
 .lovebomb:hover
 {
     background-color: #a8064a;
     transform: scale(1.02);
     cursor: pointer;
-    transition: 0.3s;
-}
-.selfie:hover
-{
-    background-color: #e30c71;
-    border-style: solid;
     transition: 0.3s;
 }
