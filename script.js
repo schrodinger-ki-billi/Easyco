@@ -1,5 +1,4 @@
 import {initializeApp} from 'https://www.gstatic.com/firebasejs/9.22.2/firebase-app.js';
-import {getStorage, ref, uploadBytes, getDownloadURL} from 'https://www.gstatic.com/firebasejs/9.22.2/firebase-storage.js';
 import {getFirestore, collection, addDoc} from 'https://www.gstatic.com/firebasejs/9.22.2/firebase-firestore.js';
 const firebaseConfig=
 {
@@ -12,7 +11,6 @@ const firebaseConfig=
     measurementId: "G-R9TGSWTKF6"
 };
 const app=initializeApp(firebaseConfig);
-const storage=getStorage(app);
 const db=getFirestore(app);
 document.addEventListener('DOMContentLoaded',function()
 {
@@ -26,16 +24,7 @@ document.addEventListener('DOMContentLoaded',function()
             const place=document.getElementById('place').value;
             const pieces=document.getElementById('pieces').value;
             const how=document.getElementById('how').value;
-            const picture=document.getElementById('picture');
-            try
-            {
-                let pic="";
-                if(picture.files.length>0)
-                {
-                    const reff=ref(storage,'selfie/'+picture.files[0].name);
-                    const wait=await uploadBytes(reff,picture.files[0]);
-                    pic=await getDownloadURL(wait.ref);
-                }
+            const pic=document.getElementById('pic').value;
                 await addDoc(collection(db,'recipes'),
                 {
                     name:name,
@@ -60,11 +49,6 @@ document.addEventListener('DOMContentLoaded',function()
                 `;
                 document.body.appendChild(recipe);
                 button.innerText='✨✨✨✨';
-            }
-            catch(error)
-            {
-                console.error('Error!!!!',error);
-            }
             
         });
     }
