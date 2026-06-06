@@ -25,6 +25,7 @@ Hence, the only fix was to make the user put public URLs of the picture of the f
 This is what I put inside rules, that makes the website vulnerable to attack, but this also solved my error below
 <img width="682" height="117" alt="Screenshot 2026-06-06 023858" src="https://github.com/user-attachments/assets/6ed34d97-b039-4e6d-a858-694a694b235e" />
 <img width="705" height="922" alt="Screenshot 2026-06-06 024240" src="https://github.com/user-attachments/assets/c18ab9a6-1f9d-4e67-802b-70e900720ea9" />
+
 I will continue to work on fixing this error for now.
 
 Also there were other problems I faced, along with the ones mentioned above, and how I fixed them:
