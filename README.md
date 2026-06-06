@@ -16,6 +16,7 @@ I am working on VS code and as you can see here as well, it is pink 😌💅🏻
 Now there were certain things I had planned but it did now go as I wanted it to:
 1) I wanted that people could just post the picture of what they cooked, and my initial plan was to make them post a selfie with the food, and hence the variables I used. But unfortunately, I couldn't pay for Blaze plan anymore, and hence couldn't use storage to store the picture sent by the user.
 <img width="678" height="527" alt="Screenshot 2026-06-06 020034" src="https://github.com/user-attachments/assets/910e425d-51eb-49fe-9068-13363ee6f6d1" />
+
 This is the error I was getting, while I tried to put user's picture in the storage which I couldn't pay for 😢😢😢😢
 Hence, the only fix was to make the user put public URLs of the picture of the food, in the form of string, and not put an image from their personal device.
 
