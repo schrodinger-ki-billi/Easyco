@@ -1,5 +1,5 @@
 import {initializeApp} from 'https://www.gstatic.com/firebasejs/9.22.2/firebase-app.js';
-import {getFirestore, collection, addDoc} from 'https://www.gstatic.com/firebasejs/9.22.2/firebase-firestore.js';
+import {getFirestore, collection, addDoc, getDocs, query, orderBy} from 'https://www.gstatic.com/firebasejs/9.22.2/firebase-firestore.js';
 const firebaseConfig=
 {
     apiKey: "AIzaSyCnXt4r_pHoaM-gFq5krEbkb4lIoETw1zA",
@@ -12,8 +12,36 @@ const firebaseConfig=
 };
 const app=initializeApp(firebaseConfig);
 const db=getFirestore(app);
+async function loadRecipes()
+{
+    const q=query(collection(db,'recipes'),orderBy('name','asc'));
+    const data=await getDocs(q);
+    data.forEach((doc)=>
+    {
+        printing(doc.data().name, doc.data().place, doc.data().pieces, doc.data().how, doc.data().image);
+    });
+}
+function printing(name, place, pieces, how, pic)
+{
+    const recipe=document.createElement('div');
+    recipe.className='form-container';
+    recipe.style.marginTop='20px';
+    const picurl=pic?`<img src="${pic}" alt="Masterpiece" style="max-width:100%;height:auto;margin-top:10px;border-radius:6px;">`:'';
+    recipe.innerHTML=`
+    <h2>${name}</h2>
+    <p><strong>From:</strong>${place}</p>
+    ${picurl}
+    <h4>Pieces of Love:</h4>
+    <pre style="white-space:pre-wrap;font-family:inherit;">${pieces}</pre>
+    <h4>How to Lovebomb:</h4>
+    <pre style="white-space:pre-wrap;font-family:inherit;">${how}</pre>
+    <p>This masterpiece has been successfully lovebombed to the world 😝😝</p>
+    `;
+    document.body.appendChild(recipe);
+}
 document.addEventListener('DOMContentLoaded',function()
 {
+    loadRecipes();
     const button=document.querySelector('.lovebomb');
     if(button)
     {
@@ -33,24 +61,9 @@ document.addEventListener('DOMContentLoaded',function()
                     how:how,
                     image:pic
                 });
-                const recipe=document.createElement('div');
-                recipe.className='form-container';
-                recipe.style.marginTop='20px';
-                const picurl=pic?`<img src="${pic}" alt="Masterpiece" style="max-width:100%;height:auto;margin-top:10px;border-radius:6px;">`:'';
-                recipe.innerHTML=`
-                <h2>${name}</h2>
-                <p><strong>From:</strong>${place}</p>
-                ${pic}
-                <h4>Pieces of Love:</h4>
-                <pre style="white-space:pre-wrap;font-family:inherit;">${pieces}</pre>
-                <h4>How to Lovebomb:</h4>
-                <pre style="white-space:pre-wrap;font-family:inherit;">${how}</pre>
-                <p>This masterpiece has been successfully lovebombed to the world 😝😝</p>
-                `;
-                document.body.appendChild(recipe);
+                printing(name, place, pieces, how, pic);
                 button.innerText='✨✨✨✨';
             
         });
     }
 });
-
