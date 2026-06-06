@@ -1,9 +1,12 @@
 # Easyco
 Easyco, which stands for Easy cooking apparently was made with one thing in my mind, and that is easy cooking lol. But jokes apart, as now I leave for my college this August, I wanted to make a website where people can add their favorite, easy to make recipes, which anyone, even those who don't the the C of cooking, can make. Students who are in hostel, and don't get home cooked food daily, can really try out these recipes from the comfort which is not so comfortable of their hostel room. 
+
 Not only that, I also myself love cooking which I got from my mother, so the first thing that struck my mind was indeed something anything related to cooking. 
 So easyco is where people can post, or just look around for some easy recipes to make. Easyco also makes "I want to make something but don't know whatt!!!!" people less angry 😌😌😌😌. 
+
 You might also notice me pinkify every single thing on the website cause yes, I love barbie, I am barbie, and barbie can do anything.
 Now to how I made the website???
+
 For frontend I am using HTML, CSS, and Javascript, and for backend I am using Firebase. I have applied DOM manipulation, await and async API handling. I have a good knowledge of Firebase and have often used it for learning backend before. I also am clear with my basic of HTML and CSS, and have learnt Javascript along with Firebase. 
 <img width="1920" height="1080" alt="Screenshot 2026-06-06 223136" src="https://github.com/user-attachments/assets/5b7a4019-a4a3-4269-9995-6da74021e7b7" />
 <img width="1920" height="1080" alt="Screenshot 2026-06-06 223129" src="https://github.com/user-attachments/assets/a63f6b57-2cd8-40c8-a908-db982b7812bd" />
