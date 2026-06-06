@@ -29,7 +29,7 @@ This is what I put inside rules, that makes the website vulnerable to attack, bu
 I will continue to work on fixing this error for now.
 
 Also there were other problems I faced, along with the ones mentioned above, and how I fixed them:
-1) My website was initially forgetting my data entries upon refreshing, hence I used DOM manipulation ro fix it.
+1) My website was initially forgetting my data entries upon refreshing, hence I used DOM manipulation to fix it.
 2) I used async and await API handling as without them I faced the error of cannot read property or simply undefined. As my website wasn't waiting for my input and was taking actions immedietely and popping errors, so I used this method to make the website sit and wait.
 
 Some screenshots of the website's initial days and dry runs:
