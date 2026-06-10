@@ -31,6 +31,15 @@ I will continue to work on fixing this error for now.
 Also there were other problems I faced, along with the ones mentioned above, and how I fixed them:
 1) My website was initially forgetting my data entries upon refreshing, hence I used DOM manipulation to fix it.
 2) I used async and await API handling as without them I faced the error of cannot read property or simply undefined. As my website wasn't waiting for my input and was taking actions immedietely and popping errors, so I used this method to make the website sit and wait.
+3) So I have used this
+  <img width="588" height="233" alt="Screenshot 2026-06-11 032727" src="https://github.com/user-attachments/assets/8c16fc67-4bc0-480c-b6f7-4f8de1f48391" />
+
+  as I was facing this error
+  <img width="691" height="262" alt="Screenshot 2026-06-11 030416" src="https://github.com/user-attachments/assets/0dc90eca-e21a-4b1e-80ca-5f4f61925369" />
+
+my HTML refused to read my function when I working with oninput="searching()", hence I decided to make my HTML do nothing, and built the entire calling of the function searching in JavaScript itself
+
+
 
 Some screenshots of the website's initial days and dry runs:
 <img width="1912" height="971" alt="Screenshot 2026-06-06 011701" src="https://github.com/user-attachments/assets/6e4600ba-f393-48ad-bac5-aa4d06b32bcf" />
