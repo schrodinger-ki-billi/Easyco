@@ -1,4 +1,5 @@
 # Easyco
+IMPORTANT!!! THE SEARCH BAR DOESN'T WORK YET, IT IS STILL UNDER CONSTRUCTION 👷🏻‍♀️
 Easyco, which stands for Easy cooking apparently was made with one thing in my mind, and that is easy cooking lol. But jokes apart, as now I leave for my college this August, I wanted to make a website where people can add their favorite, easy to make recipes, which anyone, even those who don't the the C of cooking, can make. Students who are in hostel, and don't get home cooked food daily, can really try out these recipes from the comfort which is not so comfortable of their hostel room. 
 
 Not only that, I also myself love cooking which I got from my mother, so the first thing that struck my mind was indeed something anything related to cooking. 
