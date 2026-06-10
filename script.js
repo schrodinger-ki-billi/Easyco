@@ -21,6 +21,21 @@ async function loadRecipes()
         printing(doc.data().name, doc.data().place, doc.data().pieces, doc.data().how, doc.data().image);
     });
 }
+function searching()
+{
+    let input=document.getElementById('search').value.toUpperCase();
+    let dish=document.getElementsByClassName('recipe');
+    for(let i=0;i<dish.length;i++)
+    {
+        let name=dish[i].getElementsByTagName("h2")[0].textContent.toUpperCase();
+        let place=dish[i].getElementsByTagName("p")[0].textContent.toUpperCase();
+        let pieces=dish[i].getElementsByTagName("pre")[0].textContent.toUpperCase();
+        if(name.indexOf(input)!=-1 || place.indexOf(input)!=-1 || pieces.indexOf(input)!=-1)
+            dish[i].style.display="";
+        else
+            dish[i].style.display="none";
+    }
+}
 function printing(name, place, pieces, how, pic)
 {
     const recipe=document.createElement('div');
@@ -66,4 +81,7 @@ document.addEventListener('DOMContentLoaded',function()
             
         });
     }
+    const search=document.getElementById('search');
+    if(search)
+        search.addEventListener('input',searching);
 });
