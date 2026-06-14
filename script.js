@@ -37,7 +37,7 @@ function searchprint(name, place, pieces, how, pic)
     <pre style="white-space:pre-wrap;font-family:inherit;">${how}</pre>
     <p>This masterpiece has been successfully lovebombed to the world 😝😝</p>
     `;
-    document.body.appendChild(searchreci);
+    document.getElementById('displayreci').appendChild(searchreci);
 }
 function searching()
 {
