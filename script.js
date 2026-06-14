@@ -1,5 +1,5 @@
 import {initializeApp} from 'https://www.gstatic.com/firebasejs/9.22.2/firebase-app.js';
-import {getFirestore, collection, addDoc, getDocs, query, orderBy} from 'https://www.gstatic.com/firebasejs/9.22.2/firebase-firestore.js';
+import {getFirestore, collection, addDoc, getDocs, query, orderBy, doc, updateDoc, increment} from 'https://www.gstatic.com/firebasejs/9.22.2/firebase-firestore.js';
 const firebaseConfig=
 {
     apiKey: "AIzaSyCnXt4r_pHoaM-gFq5krEbkb4lIoETw1zA",
@@ -18,11 +18,12 @@ async function loadRecipes()
     const data=await getDocs(q);
     data.forEach((doc)=>
     {
-        searchprint(doc.data().name, doc.data().place, doc.data().pieces, doc.data().how, doc.data().image);
+        searchprint(doc.id,doc.data().name, doc.data().place, doc.data().pieces, doc.data().how, doc.data().image,doc.data().lovelikes);
     });
 }
-function searchprint(name, place, pieces, how, pic)
+function searchprint(id,name, place, pieces, how, pic,lovelikes)
 {
+    let clove=lovelikes?lovelikes:0;
     const searchreci=document.createElement('div');
     searchreci.className='recipe';
     searchreci.style.marginTop='20px';
@@ -37,6 +38,17 @@ function searchprint(name, place, pieces, how, pic)
     <pre style="white-space:pre-wrap;font-family:inherit;">${how}</pre>
     <p>This masterpiece has been successfully lovebombed to the world 😝😝</p>
     `;
+    const love=document.createElement('button');
+    love.className='love';
+    love.innerText='🩷 ${clove}';
+    love.addEventListener('click',async function()
+    {
+        clove+=1;
+        love.innerText='🩷 ${clove}';
+        const userreci=doc(db,'recipes',id);
+        await updateDoc(userreci,{lovelikes:increment(1)});
+    });
+    searchreci.appendChild(love);
     document.getElementById('displayreci').appendChild(searchreci);
 }
 function searching()
