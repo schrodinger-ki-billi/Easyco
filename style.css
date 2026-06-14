@@ -73,3 +73,15 @@ input[type="text"],textarea
     cursor: pointer;
     transition: 0.3s;
 }
+#displayreci>*+*
+{
+    border: 5px solid rgba(233, 13, 145, 0.867);
+    margin-bottom: 30px;
+    padding: 20px;
+}
+#displayreci>*:first-child
+{
+    border: 5px solid rgba(233, 13, 145, 0.867);
+    margin-bottom: 30px;
+    padding: 20px;
+}
