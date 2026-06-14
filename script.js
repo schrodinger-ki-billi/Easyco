@@ -18,8 +18,26 @@ async function loadRecipes()
     const data=await getDocs(q);
     data.forEach((doc)=>
     {
-        printing(doc.data().name, doc.data().place, doc.data().pieces, doc.data().how, doc.data().image);
+        searchprint(doc.data().name, doc.data().place, doc.data().pieces, doc.data().how, doc.data().image);
     });
+}
+function searchprint(name, place, pieces, how, pic)
+{
+    const searchreci=document.createElement('div');
+    searchreci.className='recipe';
+    searchreci.style.marginTop='20px';
+    const picurl=pic?`<img src="${pic}" alt="Masterpiece" style="max-width:100%;height:auto;margin-top:10px;border-radius:6px;">`:'';
+    searchreci.innerHTML=`
+    <h2>${name}</h2>
+    <p><strong>From:</strong>${place}</p>
+    ${picurl}
+    <h4>Pieces of Love:</h4>
+    <pre style="white-space:pre-wrap;font-family:inherit;">${pieces}</pre>
+    <h4>How to Lovebomb:</h4>
+    <pre style="white-space:pre-wrap;font-family:inherit;">${how}</pre>
+    <p>This masterpiece has been successfully lovebombed to the world 😝😝</p>
+    `;
+    document.body.appendChild(searchreci);
 }
 function searching()
 {
@@ -35,24 +53,6 @@ function searching()
         else
             dish[i].style.display="none";
     }
-}
-function printing(name, place, pieces, how, pic)
-{
-    const recipe=document.createElement('div');
-    recipe.className='form-container';
-    recipe.style.marginTop='20px';
-    const picurl=pic?`<img src="${pic}" alt="Masterpiece" style="max-width:100%;height:auto;margin-top:10px;border-radius:6px;">`:'';
-    recipe.innerHTML=`
-    <h2>${name}</h2>
-    <p><strong>From:</strong>${place}</p>
-    ${picurl}
-    <h4>Pieces of Love:</h4>
-    <pre style="white-space:pre-wrap;font-family:inherit;">${pieces}</pre>
-    <h4>How to Lovebomb:</h4>
-    <pre style="white-space:pre-wrap;font-family:inherit;">${how}</pre>
-    <p>This masterpiece has been successfully lovebombed to the world 😝😝</p>
-    `;
-    document.body.appendChild(recipe);
 }
 document.addEventListener('DOMContentLoaded',function()
 {
@@ -76,7 +76,7 @@ document.addEventListener('DOMContentLoaded',function()
                     how:how,
                     image:pic
                 });
-                printing(name, place, pieces, how, pic);
+                searchprint(name, place, pieces, how, pic);
                 button.innerText='✨✨✨✨';
             
         });
