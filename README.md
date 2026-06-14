@@ -42,6 +42,12 @@ my HTML refused to read my function when I working with oninput="searching()", h
 
 Certain things I added and how:
 1) So I added a love count button, that is just like the like button you find on any other social media, but here the user can send as much love as they want, without the 1 like only rule, cause I wished I could like my fav posts on social media like a 1000+ times. Now what I used is the unique identification that comes from the doc package and then using doc.id it puts the likes in the specific id, meaning, the specific post. And updateDoc package is used to use the increment(number) function which helps adding 1 to the current count of love. Now why I specifically chose increment(number) function, because it is atomic, just like the light switch working extremely fast upon pressing, and is also happening on the server's side, so it is impossible for two requests to be overwritten.
+Here is how the database looks like:
+
+<img width="1487" height="871" alt="Screenshot 2026-06-14 202754" src="https://github.com/user-attachments/assets/976f13e4-d920-4cff-8a63-42f8dff1f679" />
+
+
+
 
 
 Some screenshots of the website's initial days and dry runs:
