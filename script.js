@@ -40,11 +40,11 @@ function searchprint(id,name, place, pieces, how, pic,lovelikes)
     `;
     const love=document.createElement('button');
     love.className='love';
-    love.innerText='🩷 ${clove}';
+    love.innerText=`🩷 ${clove}`;
     love.addEventListener('click',async function()
     {
         clove+=1;
-        love.innerText='🩷 ${clove}';
+        love.innerText=`🩷 ${clove}`;
         const userreci=doc(db,'recipes',id);
         await updateDoc(userreci,{lovelikes:increment(1)});
     });
