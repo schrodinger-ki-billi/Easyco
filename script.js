@@ -27,7 +27,7 @@ function searchprint(id,name, place, pieces, how, pic,lovelikes)
     const searchreci=document.createElement('div');
     searchreci.className='recipe';
     searchreci.style.marginTop='20px';
-    const picurl=pic?`<img src="${pic}" alt="Masterpiece" style="max-width:100%;height:auto;margin-top:10px;border-radius:6px;">`:'';
+    const picurl=pic?`<img src="${pic}" alt="Masterpiece" style="max-width:35%;max-height:300px;margin-top:10px;border-radius:6px;">`:'';
     searchreci.innerHTML=`
     <h2>${name}</h2>
     <p><strong>From:</strong>${place}</p>
@@ -36,7 +36,7 @@ function searchprint(id,name, place, pieces, how, pic,lovelikes)
     <pre style="white-space:pre-wrap;font-family:inherit;">${pieces}</pre>
     <h4>How to Lovebomb:</h4>
     <pre style="white-space:pre-wrap;font-family:inherit;">${how}</pre>
-    <p>This masterpiece has been successfully lovebombed to the world 😝😝</p>
+    <p>This masterpiece has successfully lovebombed to the world 😝😝</p>
     `;
     const love=document.createElement('button');
     love.className='love';
@@ -85,17 +85,21 @@ document.addEventListener('DOMContentLoaded',function()
                 alert("Hawwww 🥺🥺🥺🥺 aren't you forgetting to enter something??");
                 return;
             }
-                await addDoc(collection(db,'recipes'),
-                {
-                    name:name,
-                    place:place,
-                    pieces:pieces,
-                    how:how,
-                    image:pic
-                });
-                searchprint(name, place, pieces, how, pic);
-                button.innerText='✨✨✨✨';
-            
+            await addDoc(collection(db,'recipes'),
+            {
+                name:name,
+                place:place,
+                pieces:pieces,
+                how:how,
+                image:pic
+            });
+            searchprint(name, place, pieces, how, pic);
+            button.innerText='✨✨✨✨';
+            document.getElementById('name').value="";
+            document.getElementById('place').value="";
+            document.getElementById('pieces').value="";
+            document.getElementById('how').value="";
+            document.getElementById('pic').value="";
         });
     }
     const search=document.getElementById('search');
