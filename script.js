@@ -75,11 +75,16 @@ document.addEventListener('DOMContentLoaded',function()
         button.addEventListener('click',async function(event)
         {
             event.preventDefault();
-            const name=document.getElementById('name').value;
-            const place=document.getElementById('place').value;
-            const pieces=document.getElementById('pieces').value;
-            const how=document.getElementById('how').value;
-            const pic=document.getElementById('pic').value;
+            const name=document.getElementById('name').value.trim();
+            const place=document.getElementById('place').value.trim();
+            const pieces=document.getElementById('pieces').value.trim();
+            const how=document.getElementById('how').value.trim();
+            const pic=document.getElementById('pic').value.trim();
+            if(name==""||place==""||pieces==""||how==""||pic=="")
+            {
+                alert("Hawwww 🥺🥺🥺🥺 aren't you forgetting to enter something??");
+                return;
+            }
                 await addDoc(collection(db,'recipes'),
                 {
                     name:name,
