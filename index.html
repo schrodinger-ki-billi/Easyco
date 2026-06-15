@@ -31,6 +31,80 @@
       <label>How to make the masterpiece:</label>
       <textarea rows="4" cols="60" id="how" placeholder="Step 1: Add love 😘😘😘😘"></textarea><br>
 
+      <label for="diet" class="classdiet">Diet</label>
+      <select id="diet">
+        <option value="">Select</option>
+        <option value="Vegetarian">Vegetarian 🥛</option>
+        <option value="Non-Vegetarian">Non-Vegetarian 🍗</option>
+        <option value="Vegan">Vegan 🌱</option>
+      </select><br>
+
+      <label for="taste" class="classtaste">Taste</label>
+      <select id="taste">
+        <option value="">Select</option>
+        <option value="Sweet">Sweet 🍪</option>
+        <option value="Savory">Savory 🤤</option>
+        <option value="Sour">Sour 🍋</option>
+        <option value="Salty">Salty 🧂</option>
+        <option value="Savory">Bitter 🥺</option>
+      </select><br>
+
+      <label for="difficult" class="classdiff">Difficulty</label>
+      <select id="difficult">
+        <option value="">Select</option>
+        <option value="Easy">Easy peezy</option>
+        <option value="Okay">Okay okay</option>
+        <option value="Lokay">Little less okay</option>
+        <option value="Hard">Ummmm one drop of okay</option>
+        <option value="Extreme">Hawww 😰 level</option>
+        <option value="Mextreme">Ain't no way you can cook this</option>
+      </select><br>
+
+      <label class="allergy">Allergens</label>
+      <div id="allergen">
+        <div>
+        <input type="checkbox" id="dairy" name="allgy" value="vdairy">
+        <label for="dairy">Dairy 🥛</label>
+        </div>
+        <div>
+        <input type="checkbox" id="egg" name="allgy" value="vegg">
+        <label for="egg">Egg 🥚</label>
+        </div>
+        <div>
+        <input type="checkbox" id="peanut" name="allgy" value="vpeanut">
+        <label for="peanut">Peanut 🥜</label>
+        </div>
+        <div>
+        <input type="checkbox" id="soy" name="allgy" value="vsoy">
+        <label for="soy">Soy 🫛</label>
+        </div>
+        <div>
+        <input type="checkbox" id="nut" name="allgy" value="vnut">
+        <label for="nut">Nut 🌰</label>
+        </div>
+        <div>
+        <input type="checkbox" id="gluten" name="allgy" value="vgluten">
+        <label for="gluten">Gluten 🍞</label>
+        </div>
+        <div>
+        <input type="checkbox" id="sea" name="allgy" value="vsea">
+        <label for="sea">Seafood 🦐</label>
+        </div>
+        <div>
+        <input type="checkbox" id="sesame" name="allgy" value="vsesame">
+        <label for="sesame">Sesame 🌱</label>
+        </div>
+        <div>
+        <input type="checkbox" id="wheat" name="allgy" value="vwheat">
+        <label for="wheat">Wheat 🌾</label>
+        </div>
+        <div>
+        <input type="checkbox" id="others" name="allgy" value="vothers" onclick="Others()">
+        <label for="others">Others....</label>
+        <input type="type" id="textothers" styles="display:none;">
+        </div>
+      </div><br>
+
       <label for="pic" class="selfie">Masterpiece's picture 😎😎😎😎</label>
       <input type="text" id="pic" placeholder="Paste the masterpiece's picture url here...."><br>
 
