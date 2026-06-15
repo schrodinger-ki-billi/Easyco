@@ -1,5 +1,5 @@
 import {initializeApp} from 'https://www.gstatic.com/firebasejs/9.22.2/firebase-app.js';
-import {getFirestore, collection, addDoc, getDocs, query, orderBy, doc, updateDoc, increment} from 'https://www.gstatic.com/firebasejs/9.22.2/firebase-firestore.js';
+import {getFirestore, collection, addDoc, getDocs, query, orderBy, doc, updateDoc, increment, onSnapshot} from 'https://www.gstatic.com/firebasejs/9.22.2/firebase-firestore.js';
 const firebaseConfig=
 {
     apiKey: "AIzaSyCnXt4r_pHoaM-gFq5krEbkb4lIoETw1zA",
@@ -12,16 +12,20 @@ const firebaseConfig=
 };
 const app=initializeApp(firebaseConfig);
 const db=getFirestore(app);
-async function loadRecipes()
+function loading()
 {
     const q=query(collection(db,'recipes'),orderBy('name','asc'));
-    const data=await getDocs(q);
-    data.forEach((doc)=>
+    onSnapshot(q,(snapshot)=>
     {
-        searchprint(doc.id,doc.data().name, doc.data().place, doc.data().pieces, doc.data().how, doc.data().image,doc.data().lovelikes);
+        const refresh=document.getElementById("displayreci");
+        refresh.innerHTML="";
+        snapshot.forEach((doc)=>
+        {
+            searchprint(doc.id,doc.data().name, doc.data().place, doc.data().pieces, doc.data().how, doc.data().image,doc.data().lovelikes,doc.data().diet,doc.data().taste,doc.data().diff,doc.data().arr);
+        });
     });
 }
-function searchprint(id,name, place, pieces, how, pic,lovelikes)
+function searchprint(id,name, place, pieces, how, pic,lovelikes,diet,taste,diff,allergen)
 {
     let clove=lovelikes?lovelikes:0;
     const searchreci=document.createElement('div');
@@ -31,6 +35,12 @@ function searchprint(id,name, place, pieces, how, pic,lovelikes)
     searchreci.innerHTML=`
     <h2>${name}</h2>
     <p><strong>From:</strong>${place}</p>
+    <div class="dtda">
+    <p><strong>Diet: </strong>${diet}</p>
+    <p><strong>Taste: </strong>${taste}</p>
+    <p><strong>Difficulty Level: </strong>${diff}</p>
+    <p><strong>Allergies: </strong>${allergen && allergen.length>0?allergen.join(','):'None'}</p>
+    </div>
     ${picurl}
     <h4>Pieces of Love:</h4>
     <pre style="white-space:pre-wrap;font-family:inherit;">${pieces}</pre>
@@ -68,7 +78,19 @@ function searching()
 }
 document.addEventListener('DOMContentLoaded',function()
 {
-    loadRecipes();
+    loading();
+    const checko=document.getElementById("others");
+    const texto=document.getElementById("textothers");
+    checko.addEventListener('change',function()
+    {
+        if(this.checked)
+            texto.style.display="inline-block";
+        else
+        {
+            texto.style.display="none";
+            texto.value="";
+        }
+    });
     const button=document.querySelector('.lovebomb');
     if(button)
     {
@@ -80,7 +102,17 @@ document.addEventListener('DOMContentLoaded',function()
             const pieces=document.getElementById('pieces').value.trim();
             const how=document.getElementById('how').value.trim();
             const pic=document.getElementById('pic').value.trim();
-            if(name==""||place==""||pieces==""||how==""||pic=="")
+            const diet=document.getElementById('diet').value;
+            const taste=document.getElementById('taste').value;
+            const diff=document.getElementById('difficult').value;
+            let arr=Array.from(document.querySelectorAll('input[name="allgy"]:checked')).map(k=>k.value);
+            if(checko.checked && texto.value.trim() != "")
+            {
+                const i=arr.indexOf("Others");
+                if(i!=-1)
+                    arr[i]=texto.value.trim();
+            }
+            if(name==""||place==""||pieces==""||how==""||pic==""||diet==""||taste==""||diff=="")
             {
                 alert("Hawwww 🥺🥺🥺🥺 aren't you forgetting to enter something??");
                 return;
@@ -91,15 +123,24 @@ document.addEventListener('DOMContentLoaded',function()
                 place:place,
                 pieces:pieces,
                 how:how,
-                image:pic
+                image:pic,
+                diet:diet,
+                taste:taste,
+                diff:diff,
+                arr:arr
             });
-            searchprint(name, place, pieces, how, pic);
             button.innerText='✨✨✨✨';
             document.getElementById('name').value="";
             document.getElementById('place').value="";
             document.getElementById('pieces').value="";
             document.getElementById('how').value="";
             document.getElementById('pic').value="";
+            document.getElementById('diet').value="";
+            document.getElementById('taste').value="";
+            document.getElementById('difficult').value="";
+            texto.value="";
+            texto.style.display="none";
+            document.querySelectorAll('input[name="allgy"]').forEach(k=>k.checked=false);
         });
     }
     const search=document.getElementById('search');
