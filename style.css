@@ -85,3 +85,13 @@ input[type="text"],textarea
     margin-bottom: 30px;
     padding: 20px;
 }
+#allergen
+{
+    display: flex;
+    flex-direction: row;
+    gap: 40px;
+}
+#allergen div
+{
+    display: flex;
+}
