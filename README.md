@@ -50,6 +50,20 @@ Here is how the database looks like:
 
 
 
+
+2) Previously, I was using async and await API handling for my loading function, but I changed it to onSnapshot. Now why?
+Initially, by using getDocs, I was working by pulling the data, the HTTP requests. This not only made my connection slower at large scale but also won't update my page automatically. Now that I switched to snapshot, it is much faster, as it works on pushing data, hence creating a tunnel between the server and the browser, helping my function run at lightning speed without refreshing.
+
+3) Used cloud queries like query and orderBy to organize the feed of the website.
+
+4) I've also used array for my allergy section and have used ternary operators in place of if and else for keeping my code clean.
+
+5) I also have been using template literals extensively in my code for easy and fast connection between javascript variables and HTML file.
+
+6) I have also used a very important function in my code, event.preventDefault(). This helps me in a lot of wayyy. It prevents a hard refresh on my website, that is, if the user were to lovebomb the recipe, without preventDefault(), the entire onSnapshot would have been restarted, well that is what defeats the function's purpose mentioned above. Also the entire memory of js would have been wiped. So kind of, without this, my website would have been just a static document.
+
+
+
 Some screenshots of the website's initial days and dry runs:
 <img width="1912" height="971" alt="Screenshot 2026-06-06 011701" src="https://github.com/user-attachments/assets/6e4600ba-f393-48ad-bac5-aa4d06b32bcf" />
 <img width="1917" height="1023" alt="Screenshot 2026-06-06 011641" src="https://github.com/user-attachments/assets/c166e69a-9d4c-4ded-b724-95e0a6c1a9ea" />
@@ -60,4 +74,4 @@ Some more dry runs and how the data is stored in my firebase:
 <img width="1893" height="968" alt="Screenshot 2026-06-06 224814" src="https://github.com/user-attachments/assets/bb6c4ff9-5899-4729-bc81-335010a8f2c6" />
 <img width="1825" height="903" alt="Screenshot 2026-06-06 224233" src="https://github.com/user-attachments/assets/2b495d3d-7a1d-4cf1-a699-bb600767bdee" />
 
-Also, as a beginner, I not only have used my hours building the website, but also learn what I didn't know. I have done various dry runs of functions before actually commiting hence some of my hours are used for learning and not just commiting. Some things were indeed new for me and I often polished and practised on my VS code, inside of my project. I took help from Youtube, Guides of Hack Club, my Copilot was also enabled in the VS code, and once in a while I took help of Gemini to explain me certain properties of Javascript. I learnt Java for 4 years in my school, and hence my DSA, and properties of OOPs are quite clear. Also, my school has taught me that it is a good practice to write clean codes, and hence my code has proper indentation, and spaces. I usually do add comments as well, but it is just because the school wanted me to. Tbh, I don't need comments to understand my code, hence I didn't put any.
+Also, as a beginner, I not only have used my hours building the website, but also learn what I didn't know. I have done various dry runs of functions before actually commiting hence some of my hours are used for learning and not just commiting. Some things were indeed new for me and I often polished and practised on my VS code, inside of my project. I took help from Youtube, Guides of Hack Club, my Copilot was also enabled in the VS code, and once in a while I took help of Gemini to explain me certain properties of Javascript, help me understand my errors, and for certain cases rectify it for me. I learnt Java for 4 years in my school, and hence my DSA, and properties of OOPs are quite clear. Also, my school has taught me that it is a good practice to write clean codes, and hence my code has proper indentation, and spaces. I usually do add comments as well, but it is just because the school wanted me to. Tbh, I don't need comments to understand my code, hence I didn't put any.
