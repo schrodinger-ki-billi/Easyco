@@ -10,13 +10,20 @@
   <body>
     <input type="text" id="search" placeholder="Search.....">
     <div id="displayreci"></div>
-    <h1> Welcome to Easyco Fammmm!!!!</h1>
-    <p> Post your fav recipes and let the world enjoy it!!!!</p>
-    <hr>
-    <h2>Share your masterpiece 😋😋😋😋😋 or scroll up to see others</h2>
+    <div class="gameplayer">
+      <div id="view">
+        <div id="content">
+            <h1> Welcome to Easyco Fammmm!!!!</h1>
+            <p> Post your fav recipes and let the world enjoy it!!!!</p>
+            <hr>
+            <h2>Share your masterpiece 😋😋😋😋😋 or scroll up to see others</h2>
+        </div>
+      </div>
+    </div>
+    <div id="list" class="horizontal"></div>
     <div class="form-container">
       <h2> LOVEBOMB THE WORLD!!!!!</h2>
-      <form>
+      <div class="accept">
         <label>Masterpiece's name:</label>
         <input type="text" id="name" placeholder="Chocolate Chip Cookies"><br>
 
@@ -108,7 +115,7 @@
         <input type="text" id="pic" placeholder="Paste the masterpiece's picture url here...."><br>
 
         <button type="button" class="lovebomb" id="lovebomb">✨✨✨✨Lovebomb✨✨✨✨</button>
-      </form>
+      </div>
     </div>
     <script type="module" src="script.js"></script>
   </body>
