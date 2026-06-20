@@ -14,6 +14,27 @@ const app=initializeApp(firebaseConfig);
 const db=getFirestore(app);
 const content=document.getElementById('content');
 const view=document.getElementById('view');
+function boink(view)
+{
+    view.classList.remove('bounce');
+    void view.offsetWidth;
+    view.classList.add('bounce');
+}
+view.addEventListener('click',()=>
+{
+    boink(view);
+});
+function adjust(span)
+{
+    const p=span.parentElement;
+    let size=parseFloat(getComputedStyle(span).fontSize);
+    const limit=6;
+    while((span.scrollWidth>p.clientWidth || span.scrollHeight>p.clientHeight) && size>limit)
+    {
+        size--;
+        span.style.fontSize=size+"px";
+    }
+}
 function loading()
 {
     const q=query(collection(db,'recipes'),orderBy('name','asc'));
@@ -60,7 +81,9 @@ function searchprint(id,name, place, pieces, how, pic,lovelikes,diet,taste,diff,
         </div>
         ${image}
         </div>`;
+        boink(view);
     });
+    adjust(console.querySelector("span"));
     let clove=lovelikes?lovelikes:0;
     const love=document.createElement('button');
     love.className='love';
