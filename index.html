@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title>
+      Easyco
+    </title>
+    <link rel="stylesheet" href="style.css">
+  </head>
+  <body>
+    <input type="text" id="search" placeholder="Search.....">
+    <div id="displayreci"></div>
+    <h1> Welcome to Easyco Fammmm!!!!</h1>
+    <p> Post your fav recipes and let the world enjoy it!!!!</p>
+    <hr>
+    <h2>Share your masterpiece 😋😋😋😋😋 or scroll up to see others</h2>
+    <div class="form-container">
+      <h2> LOVEBOMB THE WORLD!!!!!</h2>
+      <form>
+        <label>Masterpiece's name:</label>
+        <input type="text" id="name" placeholder="Chocolate Chip Cookies"><br>
+
+        <label>Where are the pieces from????</label>
+        <input type="text" id="place" placeholder="India"><br>
+
+        <label>Pieces of the masterpiece:</label>
+        <textarea rows="4" cols="60" id="pieces" placeholder="1: Love 😘😘😘😘"></textarea><br>
+
+        <label>How to make the masterpiece:</label>
+        <textarea rows="4" cols="60" id="how" placeholder="Step 1: Add love 😘😘😘😘"></textarea><br>
+
+        <label for="diet" class="classdiet">Diet</label>
+        <select id="diet">
+          <option value="">Select</option>
+          <option value="Vegetarian 🥛">Vegetarian 🥛</option>
+          <option value="Non-Vegetarian 🍗">Non-Vegetarian 🍗</option>
+          <option value="Vegan 🌱">Vegan 🌱</option>
+        </select><br>
+
+        <label for="taste" class="classtaste">Taste</label>
+        <select id="taste">
+          <option value="">Select</option>
+          <option value="Sweet 🍰">Sweet 🍰</option>
+          <option value="Spicy 🌶️">Spicy 🌶️</option>
+          <option value="Savory 🤤">Savory 🤤</option>
+          <option value="Sour 🍋">Sour 🍋</option>
+          <option value="Salty 🧂">Salty 🧂</option>
+          <option value="Bitter 🥺">Bitter 🥺</option>
+        </select><br>
+
+        <label for="difficult" class="classdiff">Difficulty</label>
+        <select id="difficult">
+          <option value="">Select</option>
+          <option value="Easy peezy">Easy peezy</option>
+          <option value="Okay okay">Okay okay</option>
+          <option value="Little less okay">Little less okay</option>
+          <option value="Ummmm one drop of okay">Ummmm one drop of okay</option>
+          <option value="Hawww 😰 level">Hawww 😰 level</option>
+          <option value="Ain't no way you can cook this">Ain't no way you can cook this</option>
+        </select><br>
+
+        <label class="allergy">Allergens</label>
+        <div id="allergen">
+          <div>
+          <input type="checkbox" id="dairy" name="allgy" value="Dairy">
+          <label for="dairy">Dairy 🥛</label>
+          </div>
+          <div>
+          <input type="checkbox" id="egg" name="allgy" value="Egg">
+          <label for="egg">Egg 🥚</label>
+          </div>
+          <div>
+          <input type="checkbox" id="peanut" name="allgy" value="Peanut">
+          <label for="peanut">Peanut 🥜</label>
+          </div>
+          <div>
+          <input type="checkbox" id="soy" name="allgy" value="Soy">
+          <label for="soy">Soy 🫛</label>
+          </div>
+          <div>
+          <input type="checkbox" id="nut" name="allgy" value="Nut">
+          <label for="nut">Nut 🌰</label>
+          </div>
+          <div>
+          <input type="checkbox" id="gluten" name="allgy" value="Gluten">
+          <label for="gluten">Gluten 🍞</label>
+          </div>
+          <div>
+          <input type="checkbox" id="sea" name="allgy" value="Seafood">
+          <label for="sea">Seafood 🦐</label>
+          </div>
+          <div>
+          <input type="checkbox" id="sesame" name="allgy" value="Sesame">
+          <label for="sesame">Sesame 🌱</label>
+          </div>
+          <div>
+          <input type="checkbox" id="wheat" name="allgy" value="Wheat">
+          <label for="wheat">Wheat 🌾</label>
+          </div>
+          <div>
+          <input type="checkbox" id="others" name="allgy" value="Others">
+          <label for="others">Others....</label>
+          <input type="text" id="textothers" style="display:none;">
+          </div>
+        </div><br>
+
+        <label for="pic" class="selfie">Masterpiece's picture 😎😎😎😎</label>
+        <input type="text" id="pic" placeholder="Paste the masterpiece's picture url here...."><br>
+
+        <button type="button" class="lovebomb" id="lovebomb">✨✨✨✨Lovebomb✨✨✨✨</button>
+      </form>
+    </div>
+    <script type="module" src="script.js"></script>
+  </body>
+</html>
