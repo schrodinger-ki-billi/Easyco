@@ -20,10 +20,6 @@ function boink(view)
     void view.offsetWidth;
     view.classList.add('bounce');
 }
-view.addEventListener('click',()=>
-{
-    boink(view);
-});
 function adjust(span)
 {
     const p=span.parentElement;
@@ -40,11 +36,15 @@ function loading()
     const q=query(collection(db,'recipes'),orderBy('name','asc'));
     onSnapshot(q,(snapshot)=>
     {
-        const refresh=document.getElementById("displayreci");
-        refresh.innerHTML="";
-        snapshot.forEach((doc)=>
+        snapshot.docChanges().forEach((change)=>
         {
-            searchprint(doc.id,doc.data().name, doc.data().place, doc.data().pieces, doc.data().how, doc.data().image,doc.data().lovelikes,doc.data().diet,doc.data().taste,doc.data().diff,doc.data().arr);
+            if(change.type=="added")
+                searchprint(change.doc.id,change.doc.data().name,change.doc.data().place,change.doc.data().pieces,change.doc.data().how,change.doc.data().image,change.doc.data().lovelikes,change.doc.data().diet,change.doc.data().taste,change.doc.data().diff,change.doc.data().arr);
+            else if(change.type=="modified")
+            {
+                if(document.getElementById(`h-${change.doc.id}`))
+                    document.getElementById(`h-${change.doc.id}`).innerText=change.doc.data().lovelikes;
+            }
         });
     });
 }
@@ -87,7 +87,7 @@ function searchprint(id,name, place, pieces, how, pic,lovelikes,diet,taste,diff,
     let clove=lovelikes?lovelikes:0;
     const love=document.createElement('button');
     love.className='love';
-    love.innerHTML=`<img src="https://static.vecteezy.com/system/resources/thumbnails/057/910/814/small/3d-render-of-a-pink-iridescent-glass-heart-with-a-glossy-reflective-surface-isolated-on-a-transparent-background-symbolizing-love-beauty-and-modern-aesthetics-png.png" class="heart"><span class="heartt">${clove}</span>`;
+    love.innerHTML=`<img src="https://static.vecteezy.com/system/resources/thumbnails/057/910/814/small/3d-render-of-a-pink-iridescent-glass-heart-with-a-glossy-reflective-surface-isolated-on-a-transparent-background-symbolizing-love-beauty-and-modern-aesthetics-png.png" class="heart"><span class="heartt" id="h-${id}">${clove}</span>`;
     love.addEventListener('click',async function(event)
     {
         event.stopPropagation();
