@@ -1,6 +1,4 @@
 # Easyco
-UPDATE IS UNDERWAY, THINGS ARE NOT WORKING RIGHT NOW
-
 Easyco, which stands for Easy cooking apparently was made with one thing in my mind, and that is easy cooking lol. But jokes apart, as now I leave for my college this August, I wanted to make a website where people can add their favorite, easy to make recipes, which anyone, even those who don't the the C of cooking, can make. Students who are in hostel, and don't get home cooked food daily, can really try out these recipes from the comfort which is not so comfortable of their hostel room. 
 
 Not only that, I also myself love cooking which I got from my mother, so the first thing that struck my mind was indeed something anything related to cooking. 
@@ -78,3 +76,5 @@ Some more dry runs and how the data is stored in my firebase:
 
 Also, as a beginner, I not only have used my hours building the website, but also learn what I didn't know. I have done various dry runs of functions before actually commiting hence some of my hours are used for learning and not just commiting. Some things were indeed new for me and I often polished and practised on my VS code, inside of my project. I took help from Youtube, Guides of Hack Club, my Copilot was also enabled in the VS code, and once in a while I took help of Gemini to explain me certain properties of Javascript, help me understand my errors, and for certain cases rectify it for me. I learnt Java for 4 years in my school, and hence my DSA, and properties of OOPs are quite clear. Also, my school has taught me that it is a good practice to write clean codes, and hence my code has proper indentation, and spaces. I usually do add comments as well, but it is just because the school wanted me to. Tbh, I don't need comments to understand my code, hence I didn't put any.
 (AI HAS BEEN USED!!!!)
+
+So, I didn't know about local commits and was working on a major update. If I were to commit here in bits and parts, and during that time, if the reviewer were to review my project, the website would have crashed and cause major functions to not work, hence causing a rejection. So for 4 days, I worked for nearly 10 hours daily, totally locked in, even skipping my meals once in a while, making it 40 hours, without me committing anything. I know this is a lot a time without committing but I can guarantee that I have been working on my project, and no cheating whatsoever has been done. Please don't deduct my hours 🥺🥺 pretty please 🥺🥺🥺🥺🥺. I am a sincere child and worked very hard on this update.
