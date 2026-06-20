@@ -234,3 +234,59 @@ input[type="checkbox"]:hover
     background-color: #a8064a;
     transform: scale(1.02);
 }
+#search
+{
+    width: 100%;
+    height: 50px;
+    max-width: 500px;
+    box-sizing: border-box;
+    background-image: url('https://cdn-icons-png.flaticon.com/512/6688/6688692.png'), linear-gradient(to right, #bc5c72 0%, #bc5c72 65px, #FFF5F7 65px, #FFF5F7 100%);
+    background-repeat: no-repeat;
+    background-position: 18px center, 0 0;
+    background-size: 28px 28px, 100% 100%;
+    border: none;
+    border-radius: 25px;
+    box-shadow: 4px 6px 15px rgba(234,153,168,0.4);
+    padding-left: 85px;
+    padding-right: 20px;
+    font-family: inherit;
+    font-size: 1.1rem;
+    color: #b06579;
+    outline: none;
+    display: block;
+    margin: 0 auto 40px auto;
+    transition: transform 0.2s cubic-bezier(0.28,0.84,0.42,1), box-shadow 0.2s ease;
+}
+#search::placeholder
+{
+    color: #f0a3b5;
+    opacity: 0.8;
+}
+#search:hover
+{
+    transform: translateY(-2px);
+}
+#search:focus
+{
+    animation: sb 0.4s cubic-bezier(0.28,0.84,0.42,1) forwards;
+    box-shadow: 4px 8px 20px rgba(234,153,168,0.6);
+}
+@keyframes sb
+{
+    0%
+    {
+        transform: translateY(-2px) scale(1);
+    }
+    30%
+    {
+        transform: translateY(2px) scale(0.95);
+    }
+    60%
+    {
+        transform: translateY(-6px) scale(1.03);
+    }
+    100%
+    {
+        transform: translateY(-2px) scale(1);
+    }
+}
