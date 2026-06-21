@@ -134,7 +134,6 @@ document.addEventListener('DOMContentLoaded',function()
     {
         button.addEventListener('click',async function(event)
         {
-            event.preventDefault();
             const name=document.getElementById('name').value.trim();
             const place=document.getElementById('place').value.trim();
             const pieces=document.getElementById('pieces').value.trim();
