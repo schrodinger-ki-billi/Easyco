@@ -65,13 +65,37 @@ Initially, by using getDocs, I was working by pulling the data, the HTTP request
 
 AFTER MAJOR UPDATE!!!! THE WEBSITE'S LAYOUT AND INTERFACE HAS BEEN COMPLETELY POOKIEFIED, HENCE THE DETAILS ON THE NEWER VERSION IS HERE.
 IMPORTANT! SOME PREVIOUS POINTS MIGHT NOT BE VALID ANYMORE DUE TO HEAVY UPDATE IN THE METHODS WHICH INCLUDE DELETION OF CERTAIN METHOD BLOCKS, RENAMING SOME METHODS, ETC.
-7) HTML: 
+
+
+7) HTML:
+
+
+
 i) form tag has been removed and div classes and ids are being used in it's place. Now why did I do that? Simply cause of the intricate designing that I have given to the website. Previously, I couldn't have changed the dropdowns and checkboxes, but now, I not only have changed them according to their website, but also given checkboxes' boxes' ticks a new colour to match my website's vibes. Also I previously was using a very important function for my website and that was in js, named event.preventDefault(). It's function was to simply prevent my website from refreshing when the user pressed the submit button. This refresh was more of a bad refresh that we didn't want like white screen, and even like wiping away the data. Hence, when we use form tag, it does refresh the entire page, giving us these issues. But, by now using div class, I don't need the preventDefault button as div class doesn't does this bad refresh.
 
+
+
+
+
 JavaScript:
+
+
+
+
 i) Removed preventDefault() as now I was no longer using the form tag, hence no bad refresh happening, hence no prevention needed.
+
+
+
 ii) I have added a boink function for the bounce effect on my recipe display window. I have used in it .offsetWidth. This is the most important function used inside of boink as this allows my display window to bounce everytime I press on any of the consoles below. Without this, after one bounce, this animation would have completely stopped.
+
+
+
+
 iii) My adjust() function is pretty simple. I wanted something in my console that if the user enters a very big recipe name, firstly, the letters or words should not come out, and lastly, the letters or words should not get cut short. I wanted the full recipe name inside of the console screen simply. Hence, this function, by using while loop, decreses the default size of the font to fit in the words. It checks the height and width and the size, and decreases it accordingly.
+
+
+
+
 iv) This condition has been added to the loading function. Why you ask?? Simply to prevent the boink of my entire console when I like a recipe by clicking on the like button. The (`h-${change.doc.id}`) in the parameters of document.getElementById() simply helps me to put the like in the particular recipe that I liked by using the id to locate in the database and increase the like count in that particular recipe only and not some random recipe.
 
 
