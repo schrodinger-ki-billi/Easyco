@@ -191,7 +191,7 @@ document.addEventListener('DOMContentLoaded',function()
             const taste=document.getElementById('taste').value;
             const diff=document.getElementById('difficult').value;
             let arr=Array.from(document.querySelectorAll('input[name="allgy"]:checked')).map(k=>k.value);
-            if(checko.checked && texto.value.trim() != "")
+            if(checko && texto && checko.checked && texto.value.trim()!="")
             {
                 const i=arr.indexOf("Others");
                 if(i!=-1)
@@ -217,24 +217,27 @@ document.addEventListener('DOMContentLoaded',function()
                     arr:arr,
                     lovelikes:0
                 });
+                button.innerText='✨✨✨✨';
+                document.getElementById('name').value="";
+                document.getElementById('place').value="";
+                document.getElementById('pieces').value="";
+                document.getElementById('how').value="";
+                document.getElementById('pic').value="";
+                document.getElementById('diet').value="";
+                document.getElementById('taste').value="";
+                document.getElementById('difficult').value="";
+                if(texto)
+                {
+                    texto.value="";
+                    texto.style.display="none";
+                }
+                document.querySelectorAll('input[name="allgy"]').forEach(k=>k.checked=false);
             }
             catch(error)
             {
                 alert("Try lovebombing again");
                 console.error(error);
             }
-            button.innerText='✨✨✨✨';
-            document.getElementById('name').value="";
-            document.getElementById('place').value="";
-            document.getElementById('pieces').value="";
-            document.getElementById('how').value="";
-            document.getElementById('pic').value="";
-            document.getElementById('diet').value="";
-            document.getElementById('taste').value="";
-            document.getElementById('difficult').value="";
-            texto.value="";
-            texto.style.display="none";
-            document.querySelectorAll('input[name="allgy"]').forEach(k=>k.checked=false);
         });
     }
     const search=document.getElementById('search');
