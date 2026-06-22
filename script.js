@@ -1,5 +1,5 @@
 import {initializeApp} from 'https://www.gstatic.com/firebasejs/9.22.2/firebase-app.js';
-import {getFirestore, collection, addDoc, getDocs, query, orderBy, doc, updateDoc, increment, onSnapshot} from 'https://www.gstatic.com/firebasejs/9.22.2/firebase-firestore.js';
+import {getFirestore, collection, addDoc, query, orderBy, doc, updateDoc, increment, onSnapshot} from 'https://www.gstatic.com/firebasejs/9.22.2/firebase-firestore.js';
 const firebaseConfig=
 {
     apiKey: "AIzaSyCnXt4r_pHoaM-gFq5krEbkb4lIoETw1zA",
@@ -38,66 +38,111 @@ function loading()
     {
         snapshot.docChanges().forEach((change)=>
         {
+            const data=change.doc.data();
             if(change.type=="added")
-                searchprint(change.doc.id,change.doc.data().name,change.doc.data().place,change.doc.data().pieces,change.doc.data().how,change.doc.data().image,change.doc.data().lovelikes,change.doc.data().diet,change.doc.data().taste,change.doc.data().diff,change.doc.data().arr);
+                searchprint(change.doc.id,data.name,data.place,data.pieces,data.how,data.image,data.lovelikes,data.diet,data.taste,data.diff,data.arr);
             else if(change.type=="modified")
             {
                 if(document.getElementById(`h-${change.doc.id}`))
-                    document.getElementById(`h-${change.doc.id}`).innerText=change.doc.data().lovelikes;
+                    document.getElementById(`h-${change.doc.id}`).innerText=data.lovelikes;
             }
         });
     });
 }
 function searchprint(id,name, place, pieces, how, pic,lovelikes,diet,taste,diff,allergen)
 {
-    const console=document.createElement('div');
-    console.className='console';
-    console.innerHTML=`
-    <div class="screen">
-    <span>${name}</span>
-    </div>
-    <p style="display: none;">${place}</p>
-    <p class="ingredient" style="display: none;">${pieces}</p>`;
-    console.addEventListener('click',()=>
+    const con=document.createElement('div');
+    con.className='console';
+    const screen=document.createElement('div');
+    screen.className='screen';
+    const ns=document.createElement('span');
+    ns.textContent=name;
+    const placeser=document.createElement('p');
+    placeser.style.display='none';
+    placeser.textContent=place;
+    const pieceser=document.createElement('p');
+    pieceser.className='ingredient';
+    pieceser.style.display='none';
+    pieceser.textContent=pieces;
+    screen.appendChild(ns);
+    con.append(screen,placeser,pieceser);
+    con.addEventListener('click',()=>
     {
-        const image=`
-        <div class="image">
-        <img src="${pic}" alt="A picture of ${name}">
-        </div>`;
-        content.innerHTML=`
-        <div class="print">
-        <div class="text">
-        <h2>${name}</h2>
-        <p><strong>From:</strong>${place}</p>
-        <p><strong>Diet: </strong>${diet}</p>
-        <p><strong>Taste: </strong>${taste}</p>
-        <p><strong>Difficulty Level: </strong>${diff}</p>
-        <p><strong>Allergies: </strong>${allergen && allergen.length>0?allergen.join(','):'None'}</p>
-        <h4>Pieces of Love:</h4>
-        <p>${pieces}</p>
-        <h4>How to Lovebomb:</h4>
-        <p>${how}</p>
-        <p>This masterpiece has successfully lovebombed to the world 😝😝</p>
-        </div>
-        ${image}
-        </div>`;
+        content.replaceChildren();
+        const n=document.createElement('h2');
+        n.textContent=name;
+        const text=document.createElement('div');
+        text.className='text';
+        const print=document.createElement('div');
+        print.className='print';
+        const bfrom=document.createElement('p');
+        bfrom.innerHTML='<strong>From: </strong>';
+        bfrom.append(document.createTextNode(place));
+        const bdiet=document.createElement('p');
+        bdiet.innerHTML='<strong>Diet: </strong>';
+        bdiet.append(document.createTextNode(diet));
+        const btaste=document.createElement('p');
+        btaste.innerHTML='<strong>Taste: </strong>';
+        btaste.append(document.createTextNode(taste));
+        const bdiff=document.createElement('p');
+        bdiff.innerHTML='<strong>Difficulty: </strong>';
+        bdiff.append(document.createTextNode(diff));
+        const ballergy=document.createElement('p');
+        ballergy.innerHTML='<strong>Allergies: </strong>';
+        ballergy.append(document.createTextNode(allergen && allergen.length>0?allergen.join(','):'None'));
+        const pieceprint=document.createElement('h4');
+        pieceprint.textContent='Pieces of Love: ';
+        const pieceinput=document.createElement('p');
+        pieceinput.textContent=pieces;
+        const howprint=document.createElement('h4');
+        howprint.textContent='How to Lovebomb: ';
+        const howinput=document.createElement('p');
+        howinput.textContent=how;
+        const end=document.createElement('p');
+        end.textContent='This masterpiece has successfully lovebombed to the world 😝😝';
+        text.append(n,bfrom,bdiet,btaste,bdiff,ballergy,pieceprint,pieceinput,howprint,howinput,end);
+        const imbox=document.createElement('div');
+        imbox.className='image';
+        const image=document.createElement('img');
+        image.src=pic;
+        image.alt=`A picture of ${name}`;
+        imbox.appendChild(image);
+        print.append(text,imbox);
+        content.appendChild(print);
         boink(view);
     });
-    adjust(console.querySelector("span"));
+    adjust(ns);
     let clove=lovelikes?lovelikes:0;
     const love=document.createElement('button');
     love.className='love';
-    love.innerHTML=`<img src="https://static.vecteezy.com/system/resources/thumbnails/057/910/814/small/3d-render-of-a-pink-iridescent-glass-heart-with-a-glossy-reflective-surface-isolated-on-a-transparent-background-symbolizing-love-beauty-and-modern-aesthetics-png.png" class="heart"><span class="heartt" id="h-${id}">${clove}</span>`;
+    const himg=document.createElement('img');
+    himg.src='https://static.vecteezy.com/system/resources/thumbnails/057/910/814/small/3d-render-of-a-pink-iridescent-glass-heart-with-a-glossy-reflective-surface-isolated-on-a-transparent-background-symbolizing-love-beauty-and-modern-aesthetics-png.png';
+    himg.className='heart';
+    const hcou=document.createElement('span');
+    hcou.className='heartt';
+    hcou.id=`h-${id}`;
+    hcou.textContent=clove;
+    love.append(himg,hcou);
     love.addEventListener('click',async function(event)
     {
         event.stopPropagation();
-        clove+=1;
-        love.querySelector('.heartt').innerText=clove;
-        const userreci=doc(db,'recipes',id);
-        await updateDoc(userreci,{lovelikes:increment(1)});
+        try
+        {
+            clove+=1;
+            hcou.textContent=clove;
+            const userreci=doc(db,'recipes',id);
+            await updateDoc(userreci,{lovelikes:increment(1)});
+        }
+        catch(error)
+        {
+            clove-=1;
+            hcou.textContent=clove;
+            alert("Try sending love again");
+            console.error(error);
+        }
     });
-    console.appendChild(love);
-    document.getElementById('displayreci').appendChild(console);
+    con.appendChild(love);
+    document.getElementById('displayreci').appendChild(con);
 }
 function searching()
 {
@@ -119,16 +164,19 @@ document.addEventListener('DOMContentLoaded',function()
     loading();
     const checko=document.getElementById("others");
     const texto=document.getElementById("textothers");
-    checko.addEventListener('change',function()
+    if(checko && texto)
     {
-        if(this.checked)
-            texto.style.display="inline-block";
-        else
+        checko.addEventListener('change',function()
         {
-            texto.style.display="none";
-            texto.value="";
-        }
-    });
+            if(this.checked)
+                texto.style.display="inline-block";
+            else
+            {
+                texto.style.display="none";
+                texto.value="";
+            }
+        });
+    }
     const button=document.querySelector('.lovebomb');
     if(button)
     {
@@ -154,18 +202,27 @@ document.addEventListener('DOMContentLoaded',function()
                 alert("Hawwww 🥺🥺🥺🥺 aren't you forgetting to enter something??");
                 return;
             }
-            await addDoc(collection(db,'recipes'),
+            try
             {
-                name:name,
-                place:place,
-                pieces:pieces,
-                how:how,
-                image:pic,
-                diet:diet,
-                taste:taste,
-                diff:diff,
-                arr:arr
-            });
+                await addDoc(collection(db,'recipes'),
+                {
+                    name:name,
+                    place:place,
+                    pieces:pieces,
+                    how:how,
+                    image:pic,
+                    diet:diet,
+                    taste:taste,
+                    diff:diff,
+                    arr:arr,
+                    lovelikes:0
+                });
+            }
+            catch(error)
+            {
+                alert("Try lovebombing again");
+                console.error(error);
+            }
             button.innerText='✨✨✨✨';
             document.getElementById('name').value="";
             document.getElementById('place').value="";
