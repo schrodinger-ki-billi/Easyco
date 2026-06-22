@@ -111,7 +111,6 @@ function searchprint(id,name, place, pieces, how, pic,lovelikes,diet,taste,diff,
         content.appendChild(print);
         boink(view);
     });
-    adjust(ns);
     let clove=lovelikes?lovelikes:0;
     const love=document.createElement('button');
     love.className='love';
@@ -143,6 +142,10 @@ function searchprint(id,name, place, pieces, how, pic,lovelikes,diet,taste,diff,
     });
     con.appendChild(love);
     document.getElementById('displayreci').appendChild(con);
+    requestAnimationFrame(function()
+    {
+        adjust(ns);
+    });
 }
 function searching()
 {
@@ -218,6 +221,10 @@ document.addEventListener('DOMContentLoaded',function()
                     lovelikes:0
                 });
                 button.innerText='✨✨✨✨';
+                setTimeout(function()
+                {
+                    button.innerText='✨✨✨✨Lovebomb✨✨✨✨';
+                },1200);
                 document.getElementById('name').value="";
                 document.getElementById('place').value="";
                 document.getElementById('pieces').value="";
