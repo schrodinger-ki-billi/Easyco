@@ -75,7 +75,7 @@ IMPORTANT! SOME PREVIOUS POINTS MIGHT NOT BE VALID ANYMORE DUE TO HEAVY UPDATE I
 
 
 
-i) form tag has been removed and div classes and ids are being used in it's place. Now why did I do that? Simply cause of the intricate designing that I have given to the website. Previously, I couldn't have changed the dropdowns and checkboxes, but now, I not only have changed them according to their website, but also given checkboxes' boxes' ticks a new colour to match my website's vibes. Also I previously was using a very important function for my website and that was in js, named event.preventDefault(). It's function was to simply prevent my website from refreshing when the user pressed the submit button. This refresh was more of a bad refresh that we didn't want like white screen, and even like wiping away the data. Hence, when we use form tag, it does refresh the entire page, giving us these issues. But, by now using div class, I don't need the preventDefault button as div class doesn't does this bad refresh.
+i) The form tag has been removed and div classes and ids are being used in it's place. Now why did I do that? Simply cause of the intricate designing that I have given to the website. Previously, I couldn't have changed the dropdowns and checkboxes, but now, I not only have changed them according to their website, but also given checkboxes' boxes' ticks a new colour to match my website's vibes. Also I previously was using a very important function for my website and that was in js, named event.preventDefault(). It's function was to simply prevent my website from refreshing when the user pressed the submit button. But this was simply cause of the form tag that I was using, now as I have switched to div, no bad refresh is happening, hence it isn't needed anymore.
 
 
 
@@ -112,21 +112,11 @@ iv) This condition has been added to the loading function. Why you ask?? Simply 
 
 
 
-v) This inner HTML simply helps us to search using name, place, and ingredients and display that particular console below which contains the search results. In the next picture is how this is connected to actual searching method. Previously I was searching for the results using tags which are now inside of the content.innerHTML. Now there was a huge problem, if I were not to use console.innerHTML, and the user were to do searching the first thing he/she enters the website, it won't have given any results as content.innerHTML is kind of a function which is now locked and won't be accessed by searching function, unlike before, it wasn't trapped inside any event listener.
+v) In my searchprint() function, I have used both textContent and innerHTML. I have used textContent for input purpose for a safer website, and my intention for using innerHTML was simply to add some formatting. Here is where I have used it to add bold texts. Previously and initially, for dry runs, I was using it to collect user data as well but now as I come to the step to prevent the security breach from happening, this was the first thing to be fixed. 
 
 
 
-
-<img width="610" height="153" alt="Screenshot 2026-06-22 030611" src="https://github.com/user-attachments/assets/06e2dacd-e03e-4591-8c59-0b2b48000b0e" />
-
-
-
-
-
-<img width="888" height="127" alt="Screenshot 2026-06-22 031932" src="https://github.com/user-attachments/assets/c6e209bd-af28-4404-b3fc-dc1eebb89d4b" />
-
-
-
+<img width="1037" height="717" alt="image" src="https://github.com/user-attachments/assets/4c41806b-5f06-4ff0-a8a8-7f03bf5dce60" />
 
 
 
@@ -134,7 +124,108 @@ vi) A very important function has been added to the love event listener which is
 
 
 
-CSS: (remaining)
+vii) I have also used requestAnimationFrame() simply to avoid any glitch or error with the text size inside the console. This function just prevents my text size to be adjusted before the pixels are even generated cause what would it even adjust duh. 
+
+
+
+
+
+<img width="583" height="115" alt="image" src="https://github.com/user-attachments/assets/b566f054-3e33-4608-a831-496e7f9f44f0" />
+
+
+
+
+viii) Also I have added some try/catch blocks as well just to prevent the website from crashing while the users add a like or a recipe. Also I have added some if/else conditional blocks at certain places like for this below, to again prevent any crashing of the website, like in this case for the "Others" box in allergies. It was kind of like extra precaution from my end.
+
+
+
+<img width="602" height="315" alt="image" src="https://github.com/user-attachments/assets/991b185a-2e5f-420d-9e61-5aab35d1091a" />
+
+
+
+
+
+<img width="377" height="122" alt="image" src="https://github.com/user-attachments/assets/35fc7d13-51ba-4150-9724-4f00bff808be" />
+
+
+
+
+
+
+ix) I have also added a setTimeout() function for my lovebomb button or the submitting the recipe button. This is simply to change the text on the button back to how it originally was after 1.2 sec, so if the user wants to add various recipes, they don't see the ✨✨✨✨ at the end. A new recipe when added without refreshing the page, will then always show ✨✨✨✨Lovebomb✨✨✨✨ for each one of them.
+
+
+
+
+
+<img width="588" height="102" alt="image" src="https://github.com/user-attachments/assets/8f95bcfd-3718-4da9-8ad7-ea9b6b232c98" />
+
+
+
+
+CSS:
+
+i) My css contains as lot of display: flex; which in simple words do the adjusting of the objects without me having to do manual calculation. This just makes my calculation part simple as it takes a lot of time to do adjusting of the objects on the screen, and with this, I don't have to worry about it.
+
+ii) I have also used flex-wrap: wrap; just to prevent the consoles from crushing onto each other if the user uses a small screened device.
+
+iii) My width: min(800px,100%); is also used for kind of the same purpose, that is to prevent the website from breaking on a smaller device.
+
+iv) My rgba() function is just to add some transparent look on the form to make it look aesthetic. 
+
+v) For my transition, here I have used the help of Gemini for giving me values for function like cubic-bezier. It was simply to add more cool looking features.
+
+vi) I have also put up background images which I got from the internet for my search bar, console, and like button. The magnifying glass of the search bar, the entire console, and the heart of the like button are pictures taken from the internet. I have also used linear-gradient in that. First I have used it to create my aesthetic pink grid for my display recipe box. 
+
+
+
+
+
+
+
+
+<img width="960" height="682" alt="image" src="https://github.com/user-attachments/assets/c3c8a290-71c7-4b50-9bd3-d7300b99445c" />
+
+
+
+
+
+
+
+
+Second I have used it to give a little more aesthetic to my search bar by giving it two different colours. I have added a darker shade over my magnifying glass image. 
+
+
+
+
+
+
+
+
+<img width="707" height="131" alt="image" src="https://github.com/user-attachments/assets/d872bb07-5e24-4687-957f-9e9609677806" />
+
+
+
+
+
+
+vii) Then I have added @keyframes b and sb for the bounce effect on the display recipe screen (b) and for the search bar (sb). After the user taps any one of the consoles below, the display screen bounces and shows the recipe, and for the search bar, as soon as the user taps it, it bounces.
+
+viii) My object-fit: cover; is to simply prevent overflowing of the picture from the display recipe box.
+
+
+
+ix) My overflow-y: auto; is to prevent the display screen becoming the size of the text. I have set 300px of height for the display screen, if the recipe requires more than that, it simply makes a scroll bar upon the y-axis.
+
+
+
+
+
+<img width="888" height="430" alt="image" src="https://github.com/user-attachments/assets/9bcfdc3d-7ef6-41ac-af9c-6822cf45fae6" />
+
+
+
+
 
 
 
@@ -143,6 +234,18 @@ Some screenshots of the website's initial days and dry runs:
 <img width="1912" height="971" alt="Screenshot 2026-06-06 011701" src="https://github.com/user-attachments/assets/6e4600ba-f393-48ad-bac5-aa4d06b32bcf" />
 <img width="1917" height="1023" alt="Screenshot 2026-06-06 011641" src="https://github.com/user-attachments/assets/c166e69a-9d4c-4ded-b724-95e0a6c1a9ea" />
 <img width="1913" height="1001" alt="Screenshot 2026-06-06 011558" src="https://github.com/user-attachments/assets/addae256-43b0-4aea-a7b5-88e68853b531" />
+
+
+
+
+
+Updated Website's screenshots: 
+
+
+<img width="1897" height="902" alt="Screenshot 2026-06-24 050526" src="https://github.com/user-attachments/assets/de818adc-b3e6-4fb9-b915-b95475f6e9b2" />
+<img width="1895" height="906" alt="Screenshot 2026-06-24 050502" src="https://github.com/user-attachments/assets/d6a2ba7e-5ccc-4f6d-bc2f-722f782aea3b" />
+<img width="1896" height="912" alt="Screenshot 2026-06-24 050447" src="https://github.com/user-attachments/assets/32ff2d7c-9729-4bd1-96aa-40ccd20eb20a" />
+
 
 Some more dry runs and how the data is stored in my firebase:
 <img width="1900" height="912" alt="Screenshot 2026-06-06 224824" src="https://github.com/user-attachments/assets/4dda0e51-6ba2-4762-8bbc-3b7fd430d732" />
