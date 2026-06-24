@@ -239,7 +239,7 @@ Updated Website's screenshots:
 
 
 <img width="1897" height="902" alt="Screenshot 2026-06-24 050526" src="https://github.com/user-attachments/assets/de818adc-b3e6-4fb9-b915-b95475f6e9b2" />
-<img width="1895" height="906" alt="Screenshot 2026-06-24 050502" src="https://github.com/user-attachments/assets/d6a2ba7e-5ccc-4f6d-bc2f-722f782aea3b" />
+<img width="1891" height="908" alt="image" src="https://github.com/user-attachments/assets/b6fe8310-4c50-41d0-a59c-ea1ed17f6672" />
 <img width="1896" height="912" alt="Screenshot 2026-06-24 050447" src="https://github.com/user-attachments/assets/32ff2d7c-9729-4bd1-96aa-40ccd20eb20a" />
 
 
